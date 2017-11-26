@@ -1,0 +1,13 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<import src="../mine/mine.wxml"/>
+<template is="msgItem" data="{{...item}}"/>
+<!--如果要跳转到tabBar的页面, 必须加open-type="switchTab" url="路径"  -->
+<!-- <navigator open-type="switchTab" url="/pages/mine/mine">返回</navigator> -->
+<!-- <navigator url="/pages/mine/mine">返回</navigator> -->
+<!--navigateBack 默认返回  -->
+<navigator src="../cart/cart">跳转购物车页</navigator>
+<navigator open-type="navigateBack">返回</navigator>
+<button bindtap='navigateBack'>返回几层</button>
+<button bindtap='add'>获取全局数据</button>
+<include src="../index/index.wxml"/>

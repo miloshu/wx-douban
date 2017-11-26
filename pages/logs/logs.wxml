@@ -1,0 +1,19 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <!-- <block wx:for="{{logs}}" wx:for-item="log">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block> -->
+  
+</view>
+<!--进入客服会话的2种方式  -->
+<contact-button 
+  type="default-dark" 
+  size="27"
+  session-from="weapp"
+>
+</contact-button>
+<!-- <button open-type="contact" session-from="weApp">进入客服会话</button> -->
+<open-data type="groupName" open-gid="xxxxxx"></open-data>
+<!-- 指向微信公众平台首页的web-view -->
+ <web-view src="https://mp.weixin.qq.com/"></web-view> 
+<!-- <canvas style="width: 300px; height: 200px; border: 1px solid #f00" canvas-id="firstCanvas">canvas画布</canvas> -->

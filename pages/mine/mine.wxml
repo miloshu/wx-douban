@@ -1,0 +1,47 @@
+<!--mine.wxml-->
+<!-- <view class="container mine-list"> -->
+  <!-- <block wx:for="{{mines}}" wx:for-item="mine">
+    <text class="mine-item">{{index + 1}}. {{mine}}</text>
+  </block>
+  <text>hello 小程序</text> -->
+<!-- </view> -->
+<button bindtap='navigateTo'>跳转到新的页面</button>
+<button bindtap='getGlobalData'>获取全局数据</button>
+<!--引用price组件  -->
+<price innerText="hello">
+<!--传人参数到slot插槽中  -->
+  <view slot="header">我是头部内容</view>
+  <view slot="footer">我是底部内容</view>
+  <view>呵呵</view>
+</price>
+ <!-- <view wx:for="{{newArray}}" wx:key="*this">{{item}}</view>  -->
+<!-- <block wx:for="{{newArray}}">
+  <view> {{index}}</view>
+  <view> {{item}} </view>
+</block> -->
+<view class="section">
+  <view class="section__title">flex-direction: row</view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item bc_green">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+  </view>
+</view>
+<template name="msgItem">
+  <view>
+    <text> {{index}}: {{msg}} </text>
+    <text> Time: {{time}} </text>
+  </view>
+</template>
+<template is="msgItem" data="{{...item}}"/>
+<template is="msgItem" data="{{...item2}}"/>
+<!--事件冒泡  -->
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
