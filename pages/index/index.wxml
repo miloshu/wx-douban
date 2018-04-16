@@ -1,20 +1,25 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <text class="userinfo-nickname">{{userInfo.province}}</text>
-    </block>
-  </view>
-  <button type="primary" bindtap='getLocation'>获取位置</button>
-  <view class="usermotto">
-     <text bindtap="changeMotto" class="user-motto">{{motto}}</text>
-  </view>
-  <!-- camera.wxml -->
-<!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
-<button type="primary" bindtap="takePhoto">拍照</button>
-<view>预览</view>
-<image mode="widthFix" src="{{src}}"></image> -->
+<view class="page-header">
+	<text class="page-header-text">{{title}}</text>
 </view>
+<scroll-view class="page-body" scroll-y>
+<!--遍历navigator -->
+	<navigator wx:for="{{movies}}" url="../movie-details/movie-details?id={{item.id}}" wx:key="item">
+		<view class="item">
+			<image class="poster" src="{{item.images.small}}"></image>
+			<view class="meta">
+				<text class="title">{{item.title}}</text>
+				<text class="sub-title">{{item.original_title}}({{item.year}})</text>
+				<text class="artists">
+          <text wx:for="{{item.directors}}" wx:for-item="dir">
+            {{dir.name}}
+          </text>
+        </text>
+			</view>
+			<view class="rating">
+				<text>{{item.rating.average}}分</text>
+			</view>
+		</view>
+	</navigator>
+   <!-- <view bindtap="loadmore">加载更多</view>  -->
+</scroll-view>
+
